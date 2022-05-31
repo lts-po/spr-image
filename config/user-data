@@ -67,24 +67,28 @@ ssh_pwauth: true
 #  passwd: $5$hkui88$nvZgIle31cNpryjRfO9uArF7DYiBcWEnjqq7L1AQNN3
 
 ## Update apt database and upgrade packages on first boot
-#package_update: true
-#package_upgrade: true
+package_update: true
+package_upgrade: true
 
 ## Install additional packages on first boot
-#packages:
-#- avahi-daemon
+packages:
+- docker.io
+- docker-compose
+- nftables
+- linux-modules-extra-raspi
 #- rng-tools
 #- python3-gpiozero
 #- [python3-serial, 3.5-1]
 
 ## Write arbitrary files to the file-system (including binaries!)
 write_files:
-- path: /home/ubuntu/spr-install.sh
+- path: /spr-install.sh
   content: |
     git clone https://github.com/spr-networks/super
     cd super
     cp -R base/template_configs configs
-    cat configs/base/config.sh | sed 's/SSID_INTERFACE=wlan1/SSID_INTERFACE=wlan0/g'
+    sed -i 's/wlan1/wlan0/g' configs/base/config.sh
+    sed -i 's/WANIF=wlan0/WANIF=eth0/g' configs/base/config.sh
     echo "{\"admin\" : \"sprchangeme\"}" > configs/base/auth_users.json
     ./configs/scripts/gen_coredhcp_yaml.sh > configs/dhcp/coredhcp.yml
     ./configs/scripts/gen_hostapd.sh > configs/wifi/hostapd.conf
