@@ -30,6 +30,8 @@ cd super
 # generate basic configs
 cp -R base/template_configs configs
 
+## this could be defaults or run optional config-wizard.sh here
+
 INTERFACE="wlan0"
 PASSWORD="SPRchangemE"
 
