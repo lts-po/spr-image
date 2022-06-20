@@ -11,9 +11,7 @@ or use ./bin/download-img.sh
 ```sh
 ./bin/download-img.sh
 ./bin/mount-img.sh
-./bin/import-docker.sh
-./bin/build-docker.sh
-./bin/export-docker.sh
+./bin/mod.sh
 ./bin/write-sd.sh
 ```
 

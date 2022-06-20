@@ -81,21 +81,21 @@ packages:
 #- [python3-serial, 3.5-1]
 
 ## Write arbitrary files to the file-system (including binaries!)
-write_files:
-- path: /spr-install.sh
-  content: |
-    git clone https://github.com/spr-networks/super
-    cd super
-    cp -R base/template_configs configs
-    sed -i 's/wlan1/wlan0/g' configs/base/config.sh
-    sed -i 's/WANIF=wlan0/WANIF=eth0/g' configs/base/config.sh
-    echo "{\"admin\" : \"sprchangeme\"}" > configs/base/auth_users.json
-    ./configs/scripts/gen_coredhcp_yaml.sh > configs/dhcp/coredhcp.yml
-    ./configs/scripts/gen_hostapd.sh > configs/wifi/hostapd.conf
-    ./configs/scripts/gen_watchdog.sh  > configs/watchdog/watchdog.conf
-    sudo ./run_prebuilt.sh
-  permissions: '0755'
-  owner: ubuntu:ubuntu
+#write_files:
+#- path: /spr-install.sh
+#  content: |
+#    git clone https://github.com/spr-networks/super
+#    cd super
+#    cp -R base/template_configs configs
+#    sed -i 's/wlan1/wlan0/g' configs/base/config.sh
+#    sed -i 's/WANIF=wlan0/WANIF=eth0/g' configs/base/config.sh
+#    echo "{\"admin\" : \"sprchangeme\"}" > configs/base/auth_users.json
+#    ./configs/scripts/gen_coredhcp_yaml.sh > configs/dhcp/coredhcp.yml
+#    ./configs/scripts/gen_hostapd.sh > configs/wifi/hostapd.conf
+#    ./configs/scripts/gen_watchdog.sh  > configs/watchdog/watchdog.conf
+#    sudo ./run_prebuilt.sh
+#  permissions: '0755'
+#  owner: ubuntu:ubuntu
 #- encoding: gzip
 #  path: /root/Makefile
 #  content: !!binary |
