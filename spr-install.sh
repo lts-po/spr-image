@@ -11,6 +11,8 @@ echo "[+] installing dependencies..."
 apt-get update
 apt-get -y install docker.io docker-compose nftables linux-modules-extra-raspi
 
+modprobe mt76x2u
+
 # disable resolved
 systemctl disable systemd-resolved
 systemctl stop systemd-resolved
