@@ -7,7 +7,7 @@ IMG=./data/spr.img
 #TODO hardcoded sd
 OF=/dev/mmcblk0
 
-if [ -f $IMG ]; then
+if [ ! -f $IMG ]; then
 	echo "- missing ${IMG}. exiting"
 	exit
 fi

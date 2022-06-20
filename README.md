@@ -1,12 +1,17 @@
-# Build custom SPR image for raspi/arm64
+# SPR Image
 
-download ubuntu here:
-https://ubuntu.com/download/raspberry-pi/thank-you?version=21.10&architecture=server-arm64+raspi
-https://ubuntu.com/download/raspberry-pi/thank-you?version=22.04&architecture=server-arm64+raspi
+Build custom SPR image for raspi/arm64
 
-or use ./bin/download-img.sh
+**NOTE** write-sd.sh will write to */dev/mmcblk0*.
+If you are writing to a usb or other device you need to change this before running `build.sh` or ` write-sd.sh`!
 
 ## Build
+
+```sh
+./bin/build.sh
+```
+
+or run them individually:
 
 ```sh
 ./bin/download-img.sh
@@ -14,6 +19,16 @@ or use ./bin/download-img.sh
 ./bin/mod.sh
 ./bin/write-sd.sh
 ```
+
+## Download
+
+download ubuntu here:
+https://ubuntu.com/download/raspberry-pi/thank-you?version=21.10&architecture=server-arm64+raspi
+https://ubuntu.com/download/raspberry-pi/thank-you?version=22.04&architecture=server-arm64+raspi
+
+or use ./bin/download-img.sh
+
+
 
 ## current state
 

@@ -6,6 +6,7 @@ if [ $UID != 0 ]; then
 fi
 
 ROOT=./fs/
+
 touch $ROOT/etc/cloud/cloud-init.disabled
 mv $ROOT/lib/udev/rules.d/80-net-setup-link.rules $ROOT/lib/udev/rules.d/80-net-setup-link.rules.bak
 ln -s /dev/null $ROOT/lib/udev/rules.d/80-net-setup-link.rules
