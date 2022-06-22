@@ -2,8 +2,10 @@
 
 Build custom SPR image for raspi/arm64
 
-**NOTE** write-sd.sh will write to */dev/mmcblk0*.
+**IMPORTANT**
+`write-sd.sh` will write to */dev/mmcblk0*.
 If you are writing to a usb or other device you need to change this before running `build.sh` or ` write-sd.sh`!
+**IMPORTANT**
 
 ## Build
 

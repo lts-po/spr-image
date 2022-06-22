@@ -18,14 +18,16 @@ docker export $CONTAINER > custom-root.tar
 docker stop $CONTAINER && docker rm $CONTAINER
 
 echo "+ ${CONTAINER} exported to custom-root.tar"
+
+
 echo "+ writing to ${LOOP_ROOT}..."
 
 # make parts is not mounted
 sudo umount ./boot 2>/dev/null
-sudo umount ./fs 2>/dev/null
+#sudo umount ./fs 2>/dev/null
+#sudo -E mkfs.ext4 -F $LOOP_ROOT
+#sudo -E mount $LOOP_ROOT ./fs
 
-sudo -E mkfs.ext4 -F $LOOP_ROOT
-sudo -E mount $LOOP_ROOT ./fs
 sudo tar xf ./custom-root.tar -C ./fs
 
 # cleanup
