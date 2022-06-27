@@ -5,9 +5,9 @@ process:
 * export built container
 
 ```sh
-./import-docker.sh
-./build-docker.sh
-./export-docker.sh
+mod-docker/import-docker.sh
+cd mod-docker; build-docker.sh; cd ..
+mod-docker/export-docker.sh
 ```
 
 *NOTE* *TODO*
