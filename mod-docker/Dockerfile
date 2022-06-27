@@ -5,7 +5,7 @@ FROM spr:base
 ENV DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical
 
 RUN apt-get update
-RUN apt-get -y upgrade
+#RUN apt-get -y upgrade
 
 # this is base/setup.sh
 RUN apt-get -y install docker.io docker-compose nftables linux-modules-extra-raspi
@@ -35,7 +35,6 @@ RUN echo "{\n  \"iptables\": false\n}" > /etc/docker/daemon.json
 RUN apt-get autoremove -y && apt-get clean
 RUN rm -rf \
     /tmp/* \
-    /boot/* \
     /var/backups/* \
     /var/log/* \
     /var/run/* \

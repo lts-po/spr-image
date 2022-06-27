@@ -12,3 +12,5 @@ process:
 
 *NOTE* *TODO*
 copy over kernel if updated
+
+cp fs/boot/{initrd.img,vmlinuz} boot
