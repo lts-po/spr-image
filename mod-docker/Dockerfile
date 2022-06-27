@@ -29,7 +29,12 @@ RUN echo "nameserver 1.1.1.1" > /etc/resolv.conf
 # disable iptables for  docker
 RUN echo "{\n  \"iptables\": false\n}" > /etc/docker/daemon.json
 
-# TODO fetch spr && config
+# SPR setup
+RUN mkdir /home/spr
+WORKDIR /home/spr
+RUN git clone https://github.com/spr-networks/super
+WORKDIR /home/spr/super
+RUN cp -R base/template_configs configs
 
 # cleanup
 RUN apt-get autoremove -y && apt-get clean
